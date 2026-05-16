@@ -1,29 +1,28 @@
-
-resource "aws_security_group" "demo_sg" {
-  name        = "demo-sg"
+resource "aws_security_group" "demo-1-sg" {
+  name        = "allow_all_sg"
   description = "Allow all inbound and outbound traffic"
 
+  
 
-  # Inbound - Allow Everything
+  # Inbound - allow everything
   ingress {
-    description      = "Allow all inbound traffic"
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"      # -1 means all protocols
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "Allow all inbound traffic"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"   # -1 means all protocols
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Outbound - Allow Everything
+  # Outbound - allow everything
   egress {
-    description      = "Allow all outbound traffic"
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "Allow all outbound traffic"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
-    Name = "allow_all_sg"
-    Name="demo security group"
+    Name = "demo-sg"
   }
 }
